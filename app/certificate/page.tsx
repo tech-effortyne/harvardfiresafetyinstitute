@@ -5,7 +5,14 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Award, Search, CheckCircle, XCircle, AlertCircle } from "lucide-react";
+import {
+	Award,
+	Search,
+	CheckCircle,
+	XCircle,
+	AlertCircle,
+	Clock,
+} from "lucide-react";
 import { PAGE_METADATA, URLS } from "@/lib/config";
 
 type VerificationStatus =
@@ -13,7 +20,8 @@ type VerificationStatus =
 	| "loading"
 	| "verified"
 	| "not_found"
-	| "error";
+	| "error"
+	| "rate_limited";
 
 interface StudentData {
 	name: string;
@@ -34,6 +42,7 @@ export default function CertificatePage() {
 	const [fsNumber, setFsNumber] = useState("");
 	const [status, setStatus] = useState<VerificationStatus>("idle");
 	const [studentData, setStudentData] = useState<StudentData | null>(null);
+	const [rateLimitMessage, setRateLimitMessage] = useState<string>("");
 
 	useEffect(() => {
 		const script = document.createElement("script");
@@ -55,6 +64,7 @@ export default function CertificatePage() {
 
 		setStatus("loading");
 		setStudentData(null);
+		setRateLimitMessage("");
 
 		try {
 			const response = await fetch("/api/students", {
@@ -75,6 +85,11 @@ export default function CertificatePage() {
 				setStatus("verified");
 			} else if (response.status === 404) {
 				setStatus("not_found");
+			} else if (response.status === 429) {
+				setRateLimitMessage(
+					data.error || "Too many requests. Please try again later.",
+				);
+				setStatus("rate_limited");
 			} else {
 				setStatus("error");
 			}
@@ -89,6 +104,7 @@ export default function CertificatePage() {
 		setFsNumber("");
 		setStatus("idle");
 		setStudentData(null);
+		setRateLimitMessage("");
 	};
 
 	return (
@@ -135,8 +151,12 @@ export default function CertificatePage() {
 										id="serialNumber"
 										placeholder="e.g., 2024001234"
 										value={serialNumber}
-										onChange={(e) => setSerialNumber(e.target.value)}
+										onChange={(e) =>
+											setSerialNumber(e.target.value.toUpperCase())
+										}
 										disabled={status === "loading"}
+										autoCapitalize="characters"
+										style={{ textTransform: "uppercase" }}
 									/>
 								</div>
 								<div className="space-y-2">
@@ -145,8 +165,10 @@ export default function CertificatePage() {
 										id="fsNumber"
 										placeholder="e.g., FS2024-DFS-0001"
 										value={fsNumber}
-										onChange={(e) => setFsNumber(e.target.value)}
+										onChange={(e) => setFsNumber(e.target.value.toUpperCase())}
 										disabled={status === "loading"}
+										autoCapitalize="characters"
+										style={{ textTransform: "uppercase" }}
 									/>
 								</div>
 								<div className="flex gap-4">
@@ -173,7 +195,8 @@ export default function CertificatePage() {
 									</Button>
 									{(status === "verified" ||
 										status === "not_found" ||
-										status === "error") && (
+										status === "error" ||
+										status === "rate_limited") && (
 										<Button
 											type="button"
 											variant="outline"
@@ -250,6 +273,29 @@ export default function CertificatePage() {
 											<p className="text-red-700 mt-1">
 												No certificate found with the provided details. Please
 												verify the Serial Number and FS Number are correct.
+											</p>
+										</div>
+									</div>
+								</div>
+							)}
+
+							{status === "rate_limited" && (
+								<div className="mt-8 p-6 bg-yellow-50 border border-yellow-200 rounded-lg animate-fade-in">
+									<div className="flex items-start gap-4">
+										<div className="w-12 h-12 rounded-full bg-yellow-100 flex items-center justify-center shrink-0">
+											<Clock className="w-6 h-6 text-yellow-600" />
+										</div>
+										<div>
+											<h3 className="font-semibold text-yellow-800 text-lg">
+												Too Many Requests
+											</h3>
+											<p className="text-yellow-700 mt-1">
+												{rateLimitMessage ||
+													"Too many requests. Please try again later."}
+											</p>
+											<p className="text-yellow-600 text-sm mt-3">
+												You have exceeded the rate limit for verification
+												requests. Please wait before trying again.
 											</p>
 										</div>
 									</div>

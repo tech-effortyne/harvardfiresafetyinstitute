@@ -9,16 +9,7 @@ import {
 	Facebook,
 	Instagram,
 } from "lucide-react";
-import {
-	PAGE_METADATA,
-	URLS,
-	IMAGES,
-	INSTITUTE_NAME,
-	TRUST_NAME,
-	UNIVERSITY,
-	STATE,
-	ADDRESS,
-} from "@/lib/config";
+import { PAGE_METADATA, URLS, IMAGES, INSTITUTE_NAME } from "@/lib/config";
 
 const courses = [
 	{
@@ -114,51 +105,8 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
-	const structuredData = {
-		"@context": "https://schema.org",
-		"@type": "EducationalOrganization",
-		name: INSTITUTE_NAME,
-		alternateName: TRUST_NAME,
-		description: `${INSTITUTE_NAME} - A Unit of ${TRUST_NAME}. Affiliated to ${UNIVERSITY}, Approved by Government of ${STATE}.`,
-		url: URLS.home,
-		logo: IMAGES.logo,
-		address: {
-			"@type": "PostalAddress",
-			addressLocality: ADDRESS.locality,
-			addressRegion: ADDRESS.region,
-			addressCountry: ADDRESS.country,
-		},
-		affiliation: {
-			"@type": "Organization",
-			name: UNIVERSITY,
-		},
-		educationalCredentialAwarded: "Diploma in Fire & Safety Engineering",
-		hasOfferCatalog: {
-			"@type": "OfferCatalog",
-			name: "Fire Safety Courses",
-			itemListElement: [
-				{
-					"@type": "Course",
-					name: "Diploma in Fire & Safety",
-					description:
-						"Comprehensive training in fire prevention, firefighting techniques, and emergency response protocols.",
-				},
-				{
-					"@type": "Course",
-					name: "Advanced Fire Technology",
-					description:
-						"Advanced course covering fire detection systems, suppression technology, and risk assessment.",
-				},
-			],
-		},
-	};
-
 	return (
 		<>
-			<script
-				type="application/ld+json"
-				dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-			/>
 			{/* Hero Section - Two Column Layout */}
 			<section className="pt-12 md:pt-16 pb-24 bg-background">
 				<div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
