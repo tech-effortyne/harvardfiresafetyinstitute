@@ -5,6 +5,7 @@
 
 // Base Configuration
 export const BASE_URL = "https://harvardfiresafetyinstitute.com";
+export const VERCEL_BASE_URL = "https://harvardfiresafetyinstitute.vercel.app";
 export const SITE_NAME = "Harvard Institute of Fire and Safety Engineering";
 export const INSTITUTE_NAME =
 	"Harvard Institute of Fire and Safety Engineering";
@@ -86,8 +87,8 @@ export const METADATA = {
 
 // Images
 export const IMAGES = {
-	ogImage: `${BASE_URL}/Harvard_images/Sessions/Sessions_2.webp`,
-	logo: `${BASE_URL}/placeholder.svg`,
+	ogImage: `${VERCEL_BASE_URL}/Harvard_images/Sessions/Sessions_2.webp`,
+	logo: "/placeholder.svg",
 	hero: "/hero-campus.webp",
 } as const;
 
