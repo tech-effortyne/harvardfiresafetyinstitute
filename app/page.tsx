@@ -6,10 +6,11 @@ import {
 	Award,
 	CheckCircle,
 	ArrowRight,
-	Facebook,
-	Instagram,
+	// Facebook,
+	// Instagram,
 } from "lucide-react";
 import { PAGE_METADATA, URLS, IMAGES, INSTITUTE_NAME } from "@/lib/config";
+import { GlobeDemo } from "@/components/ui/globe-demo";
 
 const courses = [
 	{
@@ -107,116 +108,124 @@ export const metadata: Metadata = {
 export default function HomePage() {
 	return (
 		<>
-			{/* Hero Section - Two Column Layout */}
-			<section className="pt-12 md:pt-16 pb-24 bg-background">
-				<div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
-					{/* Main Container */}
-					<div className="grid lg:grid-cols-[60%_40%] rounded-[32px] overflow-hidden bg-muted">
-						{/* Left Content */}
-						<div className="bg-white p-8 md:p-14 lg:p-16 flex flex-col justify-center">
-							<h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground leading-tight mb-6">
-								Harvard Institute of Fire and Safety Engineering
-							</h1>
-							<p className="text-sm md:text-base text-primary font-semibold mb-2">
-								At the end of the day, our goals are simple: Quality Safety
-								Training.
-							</p>
-							<p className="text-xs md:text-sm text-muted-foreground mb-4">
-								Affiliation to Mangalore University | Approved by Government of
-								Karnataka
-							</p>
+			{/* Hero Section - Title, Text, and Globe */}
+			<section className="relative pt-12 md:pt-16 pb-12 bg-background overflow-hidden">
+				{/* Gradient — BELOW text, ABOVE globe */}
+				<div
+					className="
+	absolute top-0 left-0 right-0
+	h-[300px] md:h-[350px]
+	bg-gradient-to-b from-blue-50 via-cyan-50/80 to-transparent
+	z-10
+  "
+				/>
 
-							<p className="text-base md:text-lg lg:text-xl text-muted-foreground leading-relaxed max-w-xl mb-10">
-								Leading institute in fire, industrial, safety, and risk
-								education. Offering diploma programs with practical exposure
-								through modern equipment, site visits, workshops, and industry
-								training. Preparing students for professional safety careers
-								globally.
-							</p>
+				<div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 relative">
+					{/* Title */}
+					<div className="text-center mb-3 relative z-30">
+						<h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground leading-tight">
+							Harvard Institute of Fire and Safety Engineering
+						</h1>
+					</div>
 
-							<div className="flex flex-col gap-6">
-								{/* Primary CTA */}
-								<Button
-									asChild
-									className="bg-primary text-primary-foreground hover:bg-primary/90 
+					{/* Subtitle */}
+					<div className="text-center mb-0 relative z-30">
+						<p className="text-sm md:text-base text-primary font-semibold mb-2">
+							At the end of the day, our goals are simple: Quality Safety
+							Training.
+						</p>
+						<p className="text-xs md:text-sm text-muted-foreground">
+							Affiliation to Mangalore University | Approved by Government of
+							Karnataka
+						</p>
+					</div>
+
+					{/* Globe — BELOW gradient */}
+					<div className="mb-12 flex justify-center -mt-8 relative z-0">
+						<GlobeDemo />
+					</div>
+				</div>
+			</section>
+			<section className="relative z-50 pb-12 md:pb-16">
+				<div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 relative z-50">
+					{/* Remaining Text, Verify Certificate, and Social Buttons */}
+					<div className="flex flex-col items-center text-center">
+						<p className="text-base md:text-lg lg:text-xl text-muted-foreground leading-relaxed max-w-3xl mb-10">
+							Leading institute in fire, industrial, safety, and risk education.
+							Offering diploma programs with practical exposure through modern
+							equipment, site visits, workshops, and industry training.
+							Preparing students for professional safety careers globally.
+						</p>
+
+						<div className="flex flex-col gap-6 items-center">
+							{/* Primary CTA */}
+							<Button
+								asChild
+								className="bg-primary text-primary-foreground hover:bg-primary/90 
                        rounded-xl px-10 py-6 text-base font-semibold w-fit"
+							>
+								<Link href="/certificate">
+									Verify Certificate
+									<ArrowRight className="ml-2 w-5 h-5" />
+								</Link>
+							</Button>
+
+							{/* Social Buttons */}
+							{/* <div className="flex gap-4">
+								<Button
+									variant="outline"
+									className="
+      group rounded-xl px-6 py-6 text-base border-border bg-white
+      flex items-center gap-2
+      transition-all duration-300 ease-out
+      hover:-translate-y-0.5 hover:bg-primary/5 hover:border-primary/30
+    "
 								>
-									<Link href="/certificate">
-										Verify Certificate
-										<ArrowRight className="ml-2 w-5 h-5" />
-									</Link>
+									<Facebook
+										className="
+        w-5 h-5 text-muted-foreground
+        transition-colors duration-300
+        group-hover:text-primary
+      "
+									/>
+									<span
+										className="
+        text-muted-foreground
+        transition-colors duration-300
+        group-hover:text-primary
+      "
+									>
+										Facebook
+									</span>
 								</Button>
 
-								{/* Social Buttons */}
-								<div className="flex gap-4">
-									<Button
-										variant="outline"
-										className="
+								<Button
+									variant="outline"
+									className="
       group rounded-xl px-6 py-6 text-base border-border bg-white
       flex items-center gap-2
       transition-all duration-300 ease-out
       hover:-translate-y-0.5 hover:bg-primary/5 hover:border-primary/30
     "
-									>
-										<Facebook
-											className="
-        w-5 h-5 text-muted-foreground
-        transition-colors duration-300
-        group-hover:text-primary
-      "
-										/>
-										<span
-											className="
-        text-muted-foreground
-        transition-colors duration-300
-        group-hover:text-primary
-      "
-										>
-											Facebook
-										</span>
-									</Button>
-
-									<Button
-										variant="outline"
+								>
+									<Instagram
 										className="
-      group rounded-xl px-6 py-6 text-base border-border bg-white
-      flex items-center gap-2
-      transition-all duration-300 ease-out
-      hover:-translate-y-0.5 hover:bg-primary/5 hover:border-primary/30
-    "
-									>
-										<Instagram
-											className="
         w-5 h-5 text-muted-foreground
         transition-colors duration-300
         group-hover:text-primary
       "
-										/>
-										<span
-											className="
+									/>
+									<span
+										className="
         text-muted-foreground
         transition-colors duration-300
         group-hover:text-primary
       "
-										>
-											Instagram
-										</span>
-									</Button>
-								</div>
-							</div>
-						</div>
-
-						{/* Right Visual Panel */}
-						<div className="relative">
-							<Image
-								src="/hero-campus.webp"
-								alt="Harvard Institute of Fire and Safety Engineering Campus"
-								fill
-								className="object-cover"
-								priority
-							/>
-							{/* Overlay (optional, helps text contrast if needed later) */}
-							<div className="absolute inset-0 bg-black/10" />
+									>
+										Instagram
+									</span>
+								</Button>
+							</div> */}
 						</div>
 					</div>
 				</div>
