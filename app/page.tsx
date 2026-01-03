@@ -15,7 +15,6 @@ const courses = [
 	{
 		title: "Diploma in Fire & Safety",
 		category: "Core Program",
-		duration: "1 Year",
 		description:
 			"Comprehensive training in fire prevention, firefighting techniques, and emergency response protocols.",
 		image: "/Harvard_images/Training/Training_3.webp",
@@ -23,7 +22,6 @@ const courses = [
 	{
 		title: "Advanced Fire Technology",
 		category: "Specialized",
-		duration: "6 Months",
 		description:
 			"Advanced course covering fire detection systems, suppression technology, and risk assessment.",
 		image: "/Harvard_images/Sessions/Sessions_2.webp",
@@ -31,7 +29,6 @@ const courses = [
 	{
 		title: "Industrial Safety Management",
 		category: "Professional",
-		duration: "1 Year",
 		description:
 			"Learn to manage safety protocols in industrial environments and manufacturing facilities.",
 		image: "/Harvard_images/Training/Training_2.webp",
@@ -39,7 +36,6 @@ const courses = [
 	{
 		title: "Occupational Health & Safety",
 		category: "Essential",
-		duration: "6 Months",
 		description:
 			"Workplace safety, health hazard identification, and regulatory compliance training.",
 		image: "/Harvard_images/Sessions/Sessions_3.webp",

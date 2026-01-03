@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Card, CardContent } from "@/components/ui/card";
 import { Building2, Users, CheckCircle } from "lucide-react";
-import { PAGE_METADATA, URLS, INSTITUTE_NAME } from "@/lib/config";
+import { PAGE_METADATA, URLS } from "@/lib/config";
 
 const stats = [
 	{ id: "placement-rate", number: "98%", label: "Placement Rate" },

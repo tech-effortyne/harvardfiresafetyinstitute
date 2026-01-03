@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
-import { PAGE_METADATA, URLS, EMAILS, INSTITUTE_NAME } from "@/lib/config";
+import { PAGE_METADATA, URLS, EMAILS } from "@/lib/config";
 
 const branches = [
   {
