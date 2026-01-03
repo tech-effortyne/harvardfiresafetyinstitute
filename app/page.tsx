@@ -18,6 +18,7 @@ const courses = [
 		duration: "1 Year",
 		description:
 			"Comprehensive training in fire prevention, firefighting techniques, and emergency response protocols.",
+		image: "/Harvard_images/Training/Training_3.webp",
 	},
 	{
 		title: "Advanced Fire Technology",
@@ -25,6 +26,7 @@ const courses = [
 		duration: "6 Months",
 		description:
 			"Advanced course covering fire detection systems, suppression technology, and risk assessment.",
+		image: "/Harvard_images/Sessions/Sessions_2.webp",
 	},
 	{
 		title: "Industrial Safety Management",
@@ -32,6 +34,7 @@ const courses = [
 		duration: "1 Year",
 		description:
 			"Learn to manage safety protocols in industrial environments and manufacturing facilities.",
+		image: "/Harvard_images/Training/Training_2.webp",
 	},
 	{
 		title: "Occupational Health & Safety",
@@ -39,6 +42,7 @@ const courses = [
 		duration: "6 Months",
 		description:
 			"Workplace safety, health hazard identification, and regulatory compliance training.",
+		image: "/Harvard_images/Sessions/Sessions_3.webp",
 	},
 ];
 
@@ -295,10 +299,10 @@ export default function HomePage() {
 					<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
 						{courses.map((course) => (
 							<article key={course.title} className="group">
-								<Link href="/courses" className="block">
+								<div className="block">
 									<div className="aspect-[4/3] mb-5 overflow-hidden rounded-xl bg-muted relative">
 										<Image
-											src="/hero-campus.webp"
+											src={course.image}
 											alt={course.title}
 											fill
 											className="object-cover group-hover:scale-105 transition-transform duration-500"
@@ -314,12 +318,7 @@ export default function HomePage() {
 									<p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-3">
 										{course.description}
 									</p>
-
-									<span className="inline-flex items-center text-sm font-medium text-primary group-hover:gap-3 gap-2 transition-all">
-										See more
-										<ArrowRight className="w-4 h-4" />
-									</span>
-								</Link>
+								</div>
 							</article>
 						))}
 					</div>

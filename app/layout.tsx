@@ -29,6 +29,11 @@ export const metadata: Metadata = {
   keywords: METADATA.defaultKeywords,
   authors: [{ name: INSTITUTE_NAME }],
   robots: METADATA.robots,
+  icons: {
+    icon: "/Harvard_logo.svg",
+    shortcut: "/Harvard_logo.svg",
+    apple: "/Harvard_logo.svg",
+  },
   openGraph: {
     ...METADATA.openGraph,
     url: URLS.home,
