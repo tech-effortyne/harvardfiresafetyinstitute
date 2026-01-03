@@ -9,47 +9,86 @@ import {
 	Facebook,
 	Instagram,
 } from "lucide-react";
-import { PAGE_METADATA, URLS, IMAGES, INSTITUTE_NAME, TRUST_NAME, UNIVERSITY, STATE, ADDRESS } from "@/lib/config";
+import {
+	PAGE_METADATA,
+	URLS,
+	IMAGES,
+	INSTITUTE_NAME,
+	TRUST_NAME,
+	UNIVERSITY,
+	STATE,
+	ADDRESS,
+} from "@/lib/config";
 
 const courses = [
 	{
-		title: "Diploma in Fire & Safety",
+		title: "Diploma in Fire and Industrial Safety.",
 		category: "Core Program",
 		description:
-			"Comprehensive training in fire prevention, firefighting techniques, and emergency response protocols.",
+			"A foundational program focused on fire science, industrial hazard control, emergency preparedness, and statutory safety practices across high-risk workplaces.",
 		image: "/Harvard_images/Training/Training_3.webp",
 	},
 	{
-		title: "Advanced Fire Technology",
+		title: "Diploma in Construction and Industrial Safety.",
 		category: "Specialized",
 		description:
-			"Advanced course covering fire detection systems, suppression technology, and risk assessment.",
+			"Specialized training addressing safety management in construction and infrastructure projects, including scaffolding, work-at-height safety, heavy equipment operations, and site risk control.",
 		image: "/Harvard_images/Sessions/Sessions_2.webp",
 	},
 	{
-		title: "Industrial Safety Management",
+		title: "Diploma in Industrial Safety.",
 		category: "Professional",
 		description:
-			"Learn to manage safety protocols in industrial environments and manufacturing facilities.",
+			"A career-oriented program covering industrial safety management systems, hazard identification, accident prevention techniques, and compliance with national safety regulations.",
 		image: "/Harvard_images/Training/Training_2.webp",
 	},
 	{
-		title: "Occupational Health & Safety",
+		title: "Post Diploma in Fire & Industrial Safety Management.",
 		category: "Essential",
 		description:
-			"Workplace safety, health hazard identification, and regulatory compliance training.",
+			"An advanced management-level course emphasizing safety leadership, fire risk management, safety audits, incident investigation, and organizational safety culture development.",
 		image: "/Harvard_images/Sessions/Sessions_3.webp",
+	},
+	{
+		title: "Diploma in Industrial Safety Engineering.",
+		category: "Professional",
+		description:
+			"An engineering-focused program covering safety system design, industrial process safety, loss prevention engineering, and application of safety standards in complex industrial operations.",
+		image: "/Harvard_images/Training/Training_1.webp",
 	},
 ];
 
 const features = [
-	"Affiliated to Mangalore University",
-	"Approved by Government of Karnataka",
-	"Practical Training Under Diploma Package",
-	"Fire Fighting/Fire Alarm System Training",
-	"Construction Site Visits",
-	"Industrial Visits & Workshops",
-	"98% Students Successfully Placed",
+	{
+		title: "Affiliated to Mangalore University",
+		description:
+			"Our programs are officially recognized and affiliated with Mangalore University, ensuring your diploma holds academic credibility and industry value.",
+	},
+	{
+		title: "Approved by Government of Karnataka",
+		description:
+			"We operate with full government approval, meeting all regulatory standards and ensuring your education meets official safety training requirements.",
+	},
+	{
+		title: "Practical Training Under Diploma Package",
+		description:
+			"Comprehensive hands-on training integrated into every diploma program, giving you real-world skills alongside theoretical knowledge.",
+	},
+	{
+		title: "Construction Site Visits",
+		description:
+			"Regular visits to active construction sites provide firsthand exposure to safety protocols, risk management, and on-site safety practices.",
+	},
+	{
+		title: "Industrial Visits & Workshops",
+		description:
+			"Interactive workshops and industrial facility tours connect you with industry professionals and expose you to diverse safety management systems.",
+	},
+	{
+		title: "98% Students Successfully Placed",
+		description:
+			"Our strong industry connections and comprehensive career support help nearly all graduates secure rewarding positions in fire and safety management.",
+	},
 ];
 
 export const metadata: Metadata = {
@@ -128,10 +167,11 @@ export default function HomePage() {
 						{/* Left Content */}
 						<div className="bg-white p-8 md:p-14 lg:p-16 flex flex-col justify-center">
 							<h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground leading-tight mb-6">
-								Harvard Fire Safety Institute
+								Harvard Institute of Fire and Safety Engineering
 							</h1>
 							<p className="text-sm md:text-base text-primary font-semibold mb-2">
-								A Unit of Pushpadeep Education Trust
+								At the end of the day, our goals are simple: Quality Safety
+								Training.
 							</p>
 							<p className="text-xs md:text-sm text-muted-foreground mb-4">
 								Affiliation to Mangalore University | Approved by Government of
@@ -139,11 +179,11 @@ export default function HomePage() {
 							</p>
 
 							<p className="text-base md:text-lg lg:text-xl text-muted-foreground leading-relaxed max-w-xl mb-10">
-								Premier institution for fire, health, safety, and environmental
-								education. Get practical training under diploma package with
-								fire fighting/fire alarm systems, construction site visits,
-								industrial visits, and workshops. 98% students successfully
-								placed.
+								Leading institute in fire, industrial, safety, and risk
+								education. Offering diploma programs with practical exposure
+								through modern equipment, site visits, workshops, and industry
+								training. Preparing students for professional safety careers
+								globally.
 							</p>
 
 							<div className="flex flex-col gap-6">
@@ -222,7 +262,7 @@ export default function HomePage() {
 						<div className="relative">
 							<Image
 								src="/hero-campus.webp"
-								alt="Harvard Fire Safety Institute Campus"
+								alt="Harvard Institute of Fire and Safety Engineering Campus"
 								fill
 								className="object-cover"
 								priority
@@ -267,24 +307,29 @@ export default function HomePage() {
 
 					{/* Heading */}
 					<h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-foreground leading-tight mb-6">
-						Welcome to Harvard Fire Safety Institute
+						Welcome to Harvard Institute of Fire and Safety Engineering
 					</h2>
 
 					{/* Subheading */}
 					<p className="text-lg md:text-xl font-medium text-foreground mb-6">
-						A Unit of Pushpadeep Education Trust
+						At the end of the day, our goals are simple: Quality Safety
+						Training.
 					</p>
 
 					{/* Description */}
 					<p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-						Harvard Fire Safety Institute is a premier institution affiliated to
-						Mangalore University and approved by Government of Karnataka. We
-						offer comprehensive diploma programs with practical training
-						including fire fighting/fire alarm systems, construction site
-						visits, industrial visits, and workshops. With a remarkable 98%
-						placement rate, we are committed to producing highly skilled
-						professionals who contribute to building safer communities and
-						workplaces across India.
+						Harvard Institute of Fire and Safety Engineering (HIFSE),
+						headquartered in Mangalore—an internationally recognized center for
+						educational excellence—is committed to delivering industry-relevant
+						education in fire and industrial safety. Backed by experienced
+						faculty and state-of-the-art infrastructure, the institute focuses
+						on imparting modern technical knowledge and practical skills through
+						advanced training, industrial and construction site visits,
+						workshops, and hands-on learning. With technology-driven teaching
+						methodologies and a strong focus on professional readiness, HIFSE
+						empowers students to confidently take up challenging roles as safety
+						officers, engineers, managers, and HSE professionals across India
+						and abroad, contributing to safer workplaces and communities.
 					</p>
 				</div>
 			</section>
@@ -292,7 +337,7 @@ export default function HomePage() {
 			{/* Courses Grid */}
 			<section className="pb-20 md:pb-28 bg-background">
 				<div className="px-4 md:px-6 lg:px-8">
-					<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+					<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 lg:gap-8">
 						{courses.map((course) => (
 							<article key={course.title} className="group">
 								<div className="block">
@@ -334,18 +379,17 @@ export default function HomePage() {
 					<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 						{features.map((feature) => (
 							<div
-								key={feature}
+								key={feature.title}
 								className="bg-card rounded-xl p-6 border border-border/60"
 							>
 								<div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mb-4">
 									<CheckCircle className="w-5 h-5 text-primary" />
 								</div>
 								<h3 className="font-semibold text-foreground mb-2">
-									{feature}
+									{feature.title}
 								</h3>
 								<p className="text-muted-foreground text-sm">
-									Ensuring the highest standards in safety education and career
-									development.
+									{feature.description}
 								</p>
 							</div>
 						))}
@@ -384,29 +428,14 @@ export default function HomePage() {
 			<section className="section-padding bg-background">
 				<div className="container-custom text-center">
 					<h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-						Ready to Start Your Career in Fire & Safety?
+						Our Mission
 					</h2>
 					<p className="text-muted-foreground max-w-2xl mx-auto mb-8">
-						Join thousands of successful alumni who have built rewarding careers
-						in fire and safety management.
+						The mission of the College to provide innovative educational
+						environments, opportunities, and experiences that enable individuals
+						to develop the knowledge, skills, and attitudes necessary to achieve
+						success and to make a positive impact in their communities.
 					</p>
-					<div className="flex flex-wrap justify-center gap-4">
-						<Button
-							size="lg"
-							className="rounded-md bg-primary text-primary-foreground hover:bg-primary/90"
-						>
-							Apply Now
-							<ArrowRight className="ml-2 w-5 h-5" />
-						</Button>
-						<Button
-							asChild
-							size="lg"
-							variant="outline"
-							className="rounded-md border-border"
-						>
-							<Link href="/contact">Request Information</Link>
-						</Button>
-					</div>
 				</div>
 			</section>
 		</>

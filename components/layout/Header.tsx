@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 
@@ -19,34 +20,29 @@ const Header = () => {
 		<header className="bg-background border-b border-border sticky top-0 z-50">
 			<div className="container-custom">
 				<div className="flex items-center justify-between py-4">
-					{/* Logo */}
-					<Link href="/" className="flex items-center gap-3 group">
-						<div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
-							<svg
-								viewBox="0 0 24 24"
-								fill="none"
-								className="w-5 h-5 text-primary-foreground"
-								stroke="currentColor"
-								strokeWidth="2.5"
-							>
-								<path d="M12 2C8 6 6 10 6 13a6 6 0 0012 0c0-3-2-7-6-11z" />
-							</svg>
-						</div>
-						<span className="font-heading text-xl font-bold text-foreground">
-							Harvard Fire Safety Institute
-						</span>
+					<Link
+						href="/"
+						className="flex items-center gap-3 font-heading text-xl font-bold text-foreground"
+					>
+						<Image
+							src="/icon.svg"
+							alt="Harvard Institute Logo"
+							width={40}
+							height={40}
+							className="w-10 h-10"
+						/>
+						<span>Harvard Institute of Fire and Safety Engineering</span>
 					</Link>
 
-					{/* Desktop Navigation */}
-					<nav className="hidden lg:flex items-center gap-1">
+					<nav className="hidden lg:flex items-center gap-6">
 						{navLinks.map((link) => (
 							<Link
 								key={link.path}
 								href={link.path}
-								className={`px-4 py-2 text-sm font-medium transition-colors ${
+								className={`text-sm font-medium transition-colors ${
 									pathname === link.path
 										? "text-foreground"
-										: "text-[#6B7280] hover:text-foreground"
+										: "text-muted-foreground hover:text-foreground"
 								}`}
 							>
 								{link.name}
@@ -54,8 +50,8 @@ const Header = () => {
 						))}
 					</nav>
 
-					{/* Mobile Menu Button */}
 					<button
+						type="button"
 						className="lg:hidden p-2 text-foreground"
 						onClick={() => setIsMenuOpen(!isMenuOpen)}
 						aria-label="Toggle menu"
@@ -68,9 +64,8 @@ const Header = () => {
 					</button>
 				</div>
 
-				{/* Mobile Navigation */}
 				{isMenuOpen && (
-					<nav className="lg:hidden py-4 border-t border-border animate-fade-in">
+					<nav className="lg:hidden py-4 border-t border-border">
 						<div className="flex flex-col gap-1">
 							{navLinks.map((link) => (
 								<Link

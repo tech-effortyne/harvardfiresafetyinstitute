@@ -1,5 +1,3 @@
-"use client";
-
 import { Mail, Phone, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { EMAILS, PHONE } from "@/lib/config";

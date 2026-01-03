@@ -8,8 +8,8 @@ const branches = [
     id: "mangalore",
     name: "Main Campus - Mangalore",
     isHeadquarter: true,
-    address: "123 Safety Avenue, Industrial District, Adyar, Mangalore - 575001, Karnataka",
-    phone: ["+91 98765 43210", "+91 98765 43211"],
+    address: "2nd Floor, Laxman Building, Opposite Honda Showroom, Near Amogha Shipping Agency, Kottara Chowki Junction, N H 66 Main Road, Kottara Chowki, Mangalore-575006, Karnataka",
+    phone: ["+91 9611666912", "+91 7022943300"],
     email: EMAILS.mangalore,
     timing: "Monday - Saturday: 9:00 AM - 6:00 PM",
     locations: [
