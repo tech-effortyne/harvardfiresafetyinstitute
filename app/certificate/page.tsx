@@ -8,7 +8,12 @@ import { Label } from "@/components/ui/label";
 import { Award, Search, CheckCircle, XCircle, AlertCircle } from "lucide-react";
 import { PAGE_METADATA, URLS } from "@/lib/config";
 
-type VerificationStatus = "idle" | "loading" | "verified" | "not_found";
+type VerificationStatus =
+	| "idle"
+	| "loading"
+	| "verified"
+	| "not_found"
+	| "error";
 
 interface StudentData {
 	name: string;
@@ -68,12 +73,14 @@ export default function CertificatePage() {
 			if (response.ok && data.name) {
 				setStudentData(data);
 				setStatus("verified");
-			} else {
+			} else if (response.status === 404) {
 				setStatus("not_found");
+			} else {
+				setStatus("error");
 			}
 		} catch (error) {
 			console.error("Verification error:", error);
-			setStatus("not_found");
+			setStatus("error");
 		}
 	};
 
@@ -164,7 +171,9 @@ export default function CertificatePage() {
 											</>
 										)}
 									</Button>
-									{status !== "idle" && status !== "loading" && (
+									{(status === "verified" ||
+										status === "not_found" ||
+										status === "error") && (
 										<Button
 											type="button"
 											variant="outline"
@@ -239,12 +248,31 @@ export default function CertificatePage() {
 												Certificate Not Found
 											</h3>
 											<p className="text-red-700 mt-1">
-												We could not find a certificate matching the provided
-												details. Please check the information and try again.
+												No certificate found with the provided details. Please
+												verify the Serial Number and FS Number are correct.
 											</p>
-											<p className="text-red-600 text-sm mt-3">
-												If you believe this is an error, please contact our
-												office for assistance.
+										</div>
+									</div>
+								</div>
+							)}
+
+							{status === "error" && (
+								<div className="mt-8 p-6 bg-orange-50 border border-orange-200 rounded-lg animate-fade-in">
+									<div className="flex items-start gap-4">
+										<div className="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center shrink-0">
+											<AlertCircle className="w-6 h-6 text-orange-600" />
+										</div>
+										<div>
+											<h3 className="font-semibold text-orange-800 text-lg">
+												Unable to Verify Certificate
+											</h3>
+											<p className="text-orange-700 mt-1">
+												We encountered an issue while verifying your
+												certificate. Please try again in a few moments.
+											</p>
+											<p className="text-orange-600 text-sm mt-3">
+												If the problem persists, please contact our office for
+												assistance.
 											</p>
 										</div>
 									</div>
