@@ -345,7 +345,7 @@ export default function HomePage() {
 				</div>
 			</section>
 
-			{/* Certificate Verification CTA - Dark Green Background */}
+			{/* Certificate Verification CTA - Ice Mint Background */}
 			<section className="py-16 bg-primary text-primary-foreground">
 				<div className="container-custom">
 					<div className="flex flex-col md:flex-row items-center justify-between gap-8">

@@ -5,7 +5,6 @@
 
 // Base Configuration
 export const BASE_URL = "https://harvardfiresafetyinstitute.com";
-export const VERCEL_BASE_URL = "https://harvardfiresafetyinstitute.vercel.app";
 export const SITE_NAME = "Harvard Institute of Fire and Safety Engineering";
 export const INSTITUTE_NAME =
 	"Harvard Institute of Fire and Safety Engineering";
@@ -35,10 +34,10 @@ export const EMAILS = {
 
 // Phone Numbers
 export const PHONE = {
-	primary: "+919611666912",
+	primary: "+919148028695 ",
 	secondary: "+917022943300",
 	formatted: {
-		primary: "+91 9611666912",
+		primary: "+91 9148028695 ",
 		secondary: "+91 7022943300",
 	},
 } as const;
@@ -87,8 +86,8 @@ export const METADATA = {
 
 // Images
 export const IMAGES = {
-	ogImage: `${VERCEL_BASE_URL}/Harvard_images/Sessions/Sessions_2.webp`,
-	logo: "/placeholder.svg",
+	ogImage: `${BASE_URL}/Harvard_images/Sessions/Sessions_2.webp`,
+	logo: "/Harvard_logo.svg",
 	hero: "/hero-campus.webp",
 } as const;
 

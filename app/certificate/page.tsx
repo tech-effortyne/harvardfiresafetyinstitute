@@ -149,7 +149,7 @@ export default function CertificatePage() {
 									<Label htmlFor="serialNumber">Serial Number (Sl. No)</Label>
 									<Input
 										id="serialNumber"
-										placeholder="e.g., 2024001234"
+										placeholder="e.g., 000000"
 										value={serialNumber}
 										onChange={(e) =>
 											setSerialNumber(e.target.value.toUpperCase())
@@ -160,10 +160,10 @@ export default function CertificatePage() {
 									/>
 								</div>
 								<div className="space-y-2">
-									<Label htmlFor="fsNumber">FS Number</Label>
+									<Label htmlFor="fsNumber">REGISTER NUMBER</Label>
 									<Input
 										id="fsNumber"
-										placeholder="e.g., FS2024-DFS-0001"
+										placeholder="e.g., HIFSE0000"
 										value={fsNumber}
 										onChange={(e) => setFsNumber(e.target.value.toUpperCase())}
 										disabled={status === "loading"}
@@ -210,49 +210,49 @@ export default function CertificatePage() {
 
 							{/* Result Display */}
 							{status === "verified" && studentData && (
-								<div className="mt-8 p-6 bg-green-50 border border-green-200 rounded-lg animate-fade-in">
+								<div className="mt-8 p-6 bg-primary/10 border border-primary/30 rounded-lg animate-fade-in">
 									<div className="flex items-start gap-4">
-										<div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center shrink-0">
-											<CheckCircle className="w-6 h-6 text-green-600" />
+										<div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center shrink-0">
+											<CheckCircle className="w-6 h-6 text-primary" />
 										</div>
 										<div>
-											<h3 className="font-semibold text-green-800 text-lg">
+											<h3 className="font-semibold text-primary text-lg">
 												Certificate Verified
 											</h3>
-											<p className="text-green-700 mt-1">
+											<p className="text-primary/80 mt-1">
 												This certificate is authentic and was issued by the Fire
 												& Safety Institute.
 											</p>
 											<div className="mt-4 space-y-2 text-sm">
 												<p>
-													<span className="font-medium text-green-800">
+													<span className="font-medium text-primary">
 														Name:
 													</span>{" "}
-													<span className="text-green-700">
+													<span className="text-primary/80">
 														{studentData.name}
 													</span>
 												</p>
 												<p>
-													<span className="font-medium text-green-800">
+													<span className="font-medium text-primary">
 														Serial No:
 													</span>{" "}
-													<span className="text-green-700">
+													<span className="text-primary/80">
 														{studentData.serial_number}
 													</span>
 												</p>
 												<p>
-													<span className="font-medium text-green-800">
-														FS Number:
+													<span className="font-medium text-primary">
+														REGISTER NUMBER:
 													</span>{" "}
-													<span className="text-green-700">
+													<span className="text-primary/80">
 														{studentData.register_no}
 													</span>
 												</p>
 												<p>
-													<span className="font-medium text-green-800">
+													<span className="font-medium text-primary">
 														Status:
 													</span>{" "}
-													<span className="text-green-700">Valid</span>
+													<span className="text-primary/80">Valid</span>
 												</p>
 											</div>
 										</div>
@@ -272,7 +272,8 @@ export default function CertificatePage() {
 											</h3>
 											<p className="text-red-700 mt-1">
 												No certificate found with the provided details. Please
-												verify the Serial Number and FS Number are correct.
+												verify the Serial Number and REGISTER NUMBER are
+												correct.
 											</p>
 										</div>
 									</div>
@@ -341,8 +342,8 @@ export default function CertificatePage() {
 										top-right corner of your certificate
 									</li>
 									<li>
-										• The <strong>FS Number</strong> (Register No) is found
-										below the certificate holder's name
+										• The <strong>REGISTER NUMBER</strong> is found below the
+										certificate holder's name
 									</li>
 									<li>
 										• Enter both details exactly as they appear on your

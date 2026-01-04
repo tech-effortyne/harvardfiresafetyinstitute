@@ -31,7 +31,10 @@ const Header = () => {
 							height={40}
 							className="w-10 h-10"
 						/>
-						<span>Harvard Institute of Fire and Safety Engineering</span>
+						<span className="hidden md:inline">
+							Harvard Institute of Fire and Safety Engineering
+						</span>
+						<span className="md:hidden">HIFS</span>
 					</Link>
 
 					<nav className="hidden lg:flex items-center gap-6">
@@ -52,38 +55,57 @@ const Header = () => {
 
 					<button
 						type="button"
-						className="lg:hidden p-2 text-foreground"
+						className="lg:hidden relative w-10 h-10 flex items-center justify-center rounded-lg bg-primary/5 hover:bg-primary/10 active:bg-primary/15 transition-all duration-200 group"
 						onClick={() => setIsMenuOpen(!isMenuOpen)}
 						aria-label="Toggle menu"
+						aria-expanded={isMenuOpen}
 					>
-						{isMenuOpen ? (
-							<X className="w-6 h-6" />
-						) : (
-							<Menu className="w-6 h-6" />
-						)}
+						<div className="relative w-5 h-5">
+							<Menu
+								className={`absolute inset-0 w-5 h-5 text-foreground transition-all duration-300 ${
+									isMenuOpen
+										? "opacity-0 rotate-90 scale-0"
+										: "opacity-100 rotate-0 scale-100"
+								}`}
+							/>
+							<X
+								className={`absolute inset-0 w-5 h-5 text-foreground transition-all duration-300 ${
+									isMenuOpen
+										? "opacity-100 rotate-0 scale-100"
+										: "opacity-0 -rotate-90 scale-0"
+								}`}
+							/>
+						</div>
 					</button>
 				</div>
 
-				{isMenuOpen && (
-					<nav className="lg:hidden py-4 border-t border-border">
+				<div
+					className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+						isMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+					}`}
+				>
+					<nav className="py-4 border-t border-border">
 						<div className="flex flex-col gap-1">
-							{navLinks.map((link) => (
+							{navLinks.map((link, index) => (
 								<Link
 									key={link.path}
 									href={link.path}
 									onClick={() => setIsMenuOpen(false)}
-									className={`px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
+									className={`px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 ${
 										pathname === link.path
 											? "text-primary bg-primary/5"
 											: "text-muted-foreground hover:text-foreground hover:bg-muted"
 									}`}
+									style={{
+										animationDelay: isMenuOpen ? `${index * 50}ms` : "0ms",
+									}}
 								>
 									{link.name}
 								</Link>
 							))}
 						</div>
 					</nav>
-				)}
+				</div>
 			</div>
 		</header>
 	);

@@ -42,10 +42,10 @@ const Footer = () => {
 							</li>
 							<li>
 								<Link
-									href="/about"
+									href="/certificate"
 									className="text-muted-foreground hover:text-foreground transition-colors text-sm"
 								>
-									About Us
+									Certificate Verification
 								</Link>
 							</li>
 						</ul>

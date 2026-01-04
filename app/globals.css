@@ -6,15 +6,15 @@
 
 @layer base {
   :root {
-    --primary-hue: 142;
-    --primary-saturation: 76%;
-    --primary-lightness: 20%;
+    --primary-hue: 184;
+    --primary-saturation: 42%;
+    --primary-lightness: 55%;
     --primary: var(--primary-hue) var(--primary-saturation) var(--primary-lightness);
     --primary-foreground: 0 0% 100%;
 
-    --accent-hue: 142;
-    --accent-saturation: 50%;
-    --accent-lightness: 40%;
+    --accent-hue: 184;
+    --accent-saturation: 42%;
+    --accent-lightness: 65%;
     --accent: var(--accent-hue) var(--accent-saturation) var(--accent-lightness);
     --accent-foreground: 0 0% 100%;
 
@@ -153,7 +153,7 @@
   }
 
   .badge-category {
-    @apply inline-block px-3 py-1 text-xs font-medium rounded-full bg-[#e8f5e9] text-[#2e7d32];
+    @apply inline-block px-3 py-1 text-xs font-medium rounded-full bg-primary/10 text-primary;
   }
 }
 
