@@ -16,8 +16,8 @@ export const LOCATION = "Mangalore";
 // Page URLs
 export const URLS = {
 	home: BASE_URL,
-	placements: `${BASE_URL}/placements`,
-	branches: `${BASE_URL}/branches`,
+	// placements: `${BASE_URL}/placements`,
+	// branches: `${BASE_URL}/branches`,
 	certificate: `${BASE_URL}/certificate`,
 	contact: `${BASE_URL}/contact`,
 	sitemap: `${BASE_URL}/sitemap.xml`,
@@ -34,12 +34,8 @@ export const EMAILS = {
 
 // Phone Numbers
 export const PHONE = {
-	primary: "+919148028695 ",
-	secondary: "+917022943300",
-	formatted: {
-		primary: "+91 9148028695 ",
-		secondary: "+91 7022943300",
-	},
+	primary: "+91 9148028695",
+	secondary: "+91 7022943300",
 } as const;
 
 // Address
@@ -54,8 +50,8 @@ export const ADDRESS = {
 
 // Common Metadata
 export const METADATA = {
-	defaultTitle: `${INSTITUTE_NAME} | ${TRUST_NAME} | ${UNIVERSITY}`,
-	defaultDescription: `${INSTITUTE_NAME} - A Unit of ${TRUST_NAME}. Affiliated to ${UNIVERSITY}, Approved by Government of ${STATE}. 98% Students Successfully Placed. Practical Training, Industrial Visits, Fire Fighting Systems.`,
+	defaultTitle: INSTITUTE_NAME,
+	defaultDescription: `Harvard Fire & Safety Institute - Pushpadeep Education Trust. Affiliated to Mangalore University, Govt. Approved. 98% Placement Success. Practical Training & Industrial Visits.`,
 	defaultKeywords: [
 		"harvard institute of fire and safety engineering",
 		"fire safety engineering",
@@ -95,7 +91,7 @@ export const IMAGES = {
 export const PAGE_METADATA = {
 	home: {
 		title: METADATA.defaultTitle,
-		description: `${METADATA.defaultDescription} Practical Training, Industrial Visits, Fire Fighting Systems, Construction Site Visits.`,
+		description: METADATA.defaultDescription,
 		keywords: METADATA.defaultKeywords,
 	},
 	// placements: {
@@ -111,13 +107,13 @@ export const PAGE_METADATA = {
 	// 		"harvard institute of fire and safety engineering branches, fire safety mangalore, fire safety bangalore, fire safety mysore, karnataka fire safety institute locations",
 	// },
 	certificate: {
-		title: `Certificate Verification - ${SITE_NAME}`,
+		title: `Certificate Verification | ${SITE_NAME}`,
 		description: `Verify the authenticity of certificates issued by ${SITE_NAME}. Enter Serial Number and FS Number to verify certificate. Employers and institutions can confirm the validity of our graduates' credentials.`,
 		keywords:
 			"certificate verification, fire safety certificate, certificate check, verify diploma, harvard fire safety certificate verification, FS number verification",
 	},
 	contact: {
-		title: `Contact Us - ${SITE_NAME} | ${LOCATION}`,
+		title: `Contact Us | ${SITE_NAME}`,
 		description: `Contact ${SITE_NAME}, ${LOCATION}. Get in touch for admissions, course information, and inquiries. A Unit of ${TRUST_NAME}, Affiliated to ${UNIVERSITY}.`,
 		keywords:
 			"contact harvard institute of fire and safety engineering, fire safety institute mangalore, admissions fire safety, fire safety course inquiry, pushpadeep education trust contact",

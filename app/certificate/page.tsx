@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -13,8 +13,6 @@ import {
 	AlertCircle,
 	Clock,
 } from "lucide-react";
-import { PAGE_METADATA, URLS } from "@/lib/config";
-
 type VerificationStatus =
 	| "idle"
 	| "loading"
@@ -27,15 +25,8 @@ interface StudentData {
 	name: string;
 	register_no: string;
 	serial_number: string;
+	year: number;
 }
-
-const structuredData = {
-	"@context": "https://schema.org",
-	"@type": "WebPage",
-	name: PAGE_METADATA.certificate.title,
-	description: PAGE_METADATA.certificate.description,
-	url: URLS.certificate,
-};
 
 export default function CertificatePage() {
 	const [serialNumber, setSerialNumber] = useState("");
@@ -43,17 +34,6 @@ export default function CertificatePage() {
 	const [status, setStatus] = useState<VerificationStatus>("idle");
 	const [studentData, setStudentData] = useState<StudentData | null>(null);
 	const [rateLimitMessage, setRateLimitMessage] = useState<string>("");
-
-	useEffect(() => {
-		const script = document.createElement("script");
-		script.type = "application/ld+json";
-		script.text = JSON.stringify(structuredData);
-		document.head.appendChild(script);
-
-		return () => {
-			document.head.removeChild(script);
-		};
-	}, []);
 
 	const handleVerify = async (e: React.FormEvent) => {
 		e.preventDefault();
@@ -246,6 +226,14 @@ export default function CertificatePage() {
 													</span>{" "}
 													<span className="text-primary/80">
 														{studentData.register_no}
+													</span>
+												</p>
+												<p>
+													<span className="font-medium text-primary">
+														Year:
+													</span>{" "}
+													<span className="text-primary/80">
+														{studentData.year}
 													</span>
 												</p>
 												<p>

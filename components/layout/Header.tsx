@@ -22,6 +22,7 @@ const Header = () => {
 				<div className="flex items-center justify-between py-4">
 					<Link
 						href="/"
+						title="Harvard Institute of Fire and Safety Engineering - Home"
 						className="flex items-center gap-3 font-heading text-xl font-bold text-foreground"
 					>
 						<Image
@@ -42,6 +43,7 @@ const Header = () => {
 							<Link
 								key={link.path}
 								href={link.path}
+								title={`Go to ${link.name} page`}
 								className={`text-sm font-medium transition-colors ${
 									pathname === link.path
 										? "text-foreground"
@@ -90,6 +92,7 @@ const Header = () => {
 								<Link
 									key={link.path}
 									href={link.path}
+									title={`Go to ${link.name} page`}
 									onClick={() => setIsMenuOpen(false)}
 									className={`px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 ${
 										pathname === link.path

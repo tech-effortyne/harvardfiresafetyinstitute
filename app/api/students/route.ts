@@ -103,7 +103,7 @@ export async function POST(request: NextRequest) {
 
 		// Query the database for the student
 		const result = await sql`
-      SELECT name, register_no, serial_number 
+      SELECT name, register_no, serial_number, year 
       FROM students 
       WHERE serial_number = ${serial_number} 
       AND register_no = ${register_no}
@@ -132,6 +132,7 @@ export async function POST(request: NextRequest) {
 				name: student.name,
 				register_no: student.register_no,
 				serial_number: student.serial_number,
+				year: student.year,
 			},
 			{
 				headers: {

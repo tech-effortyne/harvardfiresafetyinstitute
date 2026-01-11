@@ -141,7 +141,10 @@ export default function HomePage() {
 									className="bg-primary text-primary-foreground hover:bg-primary/90 
                        rounded-xl px-10 py-6 text-base font-semibold w-fit"
 								>
-									<Link href="/certificate">
+									<Link
+										href="/certificate"
+										title="Go to Certificate Verification page"
+									>
 										Verify Certificate
 										<ArrowRight className="ml-2 w-5 h-5" />
 									</Link>
@@ -363,7 +366,10 @@ export default function HomePage() {
 							size="lg"
 							className="rounded-md bg-background text-foreground hover:bg-background/90 font-semibold"
 						>
-							<Link href="/certificate">
+							<Link
+								href="/certificate"
+								title="Go to Certificate Verification page"
+							>
 								<Award className="mr-2 w-5 h-5" />
 								Verify Certificate
 							</Link>

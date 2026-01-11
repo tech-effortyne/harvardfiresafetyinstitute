@@ -10,6 +10,7 @@ const TopBar = () => {
 					<div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-6">
 						<a
 							href={`mailto:${EMAILS.info}`}
+							title={`Send email to ${EMAILS.info}`}
 							className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
 						>
 							<Mail className="w-4 h-4 shrink-0" />
@@ -17,16 +18,18 @@ const TopBar = () => {
 						</a>
 						<a
 							href={`tel:${PHONE.primary}`}
+							title={`Call us at ${PHONE.primary}`}
 							className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
 						>
 							<Phone className="w-4 h-4 shrink-0" />
 							<span className="whitespace-nowrap text-xs sm:text-sm">
-								{PHONE.formatted.primary}
+								{PHONE.primary}
 							</span>
 						</a>
 					</div>
 					<Link
 						href="/contact"
+						title="Go to Contact Us page"
 						className="flex items-center gap-2 text-primary font-medium hover:gap-3 transition-all shrink-0"
 					>
 						<span className="text-xs sm:text-sm">Contact Us</span>

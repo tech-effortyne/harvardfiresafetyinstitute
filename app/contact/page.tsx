@@ -61,15 +61,17 @@ export default function ContactPage() {
 										<div className="space-y-1 text-muted-foreground text-sm">
 											<a
 												href={`tel:${PHONE.primary}`}
+												title={`Call us at ${PHONE.primary}`}
 												className="block hover:text-gold transition-colors"
 											>
-												{PHONE.formatted.primary}
+												{PHONE.primary}
 											</a>
 											<a
 												href={`tel:${PHONE.secondary}`}
+												title={`Call us at ${PHONE.secondary}`}
 												className="block hover:text-gold transition-colors"
 											>
-												{PHONE.formatted.secondary}
+												{PHONE.secondary}
 											</a>
 										</div>
 									</div>
@@ -91,15 +93,10 @@ export default function ContactPage() {
 										<div className="space-y-1 text-muted-foreground text-sm">
 											<a
 												href={`mailto:${EMAILS.info}`}
+												title={`Send email to ${EMAILS.info}`}
 												className="block hover:text-gold transition-colors break-all"
 											>
 												{EMAILS.info}
-											</a>
-											<a
-												href={`mailto:${EMAILS.admissions}`}
-												className="block hover:text-gold transition-colors break-all"
-											>
-												{EMAILS.admissions}
 											</a>
 										</div>
 									</div>

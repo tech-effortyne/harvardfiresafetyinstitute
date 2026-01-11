@@ -27,6 +27,7 @@ const Footer = () => {
 							<li>
 								<Link
 									href="/"
+									title="Go to Home page"
 									className="text-muted-foreground hover:text-foreground transition-colors text-sm"
 								>
 									Home
@@ -35,6 +36,7 @@ const Footer = () => {
 							<li>
 								<Link
 									href="/contact"
+									title="Go to Contact Us page"
 									className="text-muted-foreground hover:text-foreground transition-colors text-sm"
 								>
 									Contact Us
@@ -43,6 +45,7 @@ const Footer = () => {
 							<li>
 								<Link
 									href="/certificate"
+									title="Go to Certificate Verification page"
 									className="text-muted-foreground hover:text-foreground transition-colors text-sm"
 								>
 									Certificate Verification
@@ -68,15 +71,17 @@ const Footer = () => {
 								<div className="flex flex-col gap-1">
 									<a
 										href={`tel:${PHONE.primary}`}
+										title={`Call us at ${PHONE.primary}`}
 										className="text-muted-foreground hover:text-foreground transition-colors text-sm"
 									>
-										{PHONE.formatted.primary}
+										{PHONE.primary}
 									</a>
 									<a
 										href={`tel:${PHONE.secondary}`}
+										title={`Call us at ${PHONE.secondary}`}
 										className="text-muted-foreground hover:text-foreground transition-colors text-sm"
 									>
-										{PHONE.formatted.secondary}
+										{PHONE.secondary}
 									</a>
 								</div>
 							</li>
@@ -84,6 +89,7 @@ const Footer = () => {
 								<Mail className="w-4 h-4 text-muted-foreground shrink-0" />
 								<a
 									href={`mailto:${EMAILS.info}`}
+									title={`Send email to ${EMAILS.info}`}
 									className="text-muted-foreground hover:text-foreground transition-colors text-sm"
 								>
 									{EMAILS.info}

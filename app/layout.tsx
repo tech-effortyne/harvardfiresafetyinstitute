@@ -4,14 +4,7 @@ import "./globals.css";
 import Layout from "@/components/layout/Layout";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ReactQueryProvider } from "./providers";
-import {
-	BASE_URL,
-	INSTITUTE_NAME,
-	TRUST_NAME,
-	METADATA,
-	IMAGES,
-	URLS,
-} from "@/lib/config";
+import { BASE_URL, INSTITUTE_NAME, METADATA, IMAGES, URLS } from "@/lib/config";
 
 const dmSans = DM_Sans({
 	subsets: ["latin"],
@@ -26,14 +19,14 @@ export const metadata: Metadata = {
 	authors: [{ name: INSTITUTE_NAME }],
 	robots: METADATA.robots,
 	icons: {
-		icon: "/Harvard_logo.svg",
-		shortcut: "/Harvard_logo.svg",
-		apple: "/Harvard_logo.svg",
+		icon: IMAGES.logo,
+		shortcut: IMAGES.logo,
+		apple: IMAGES.logo,
 	},
 	openGraph: {
 		...METADATA.openGraph,
 		url: URLS.home,
-		title: `${INSTITUTE_NAME} | ${TRUST_NAME}`,
+		title: INSTITUTE_NAME,
 		description: METADATA.defaultDescription,
 		images: [
 			{
@@ -46,7 +39,7 @@ export const metadata: Metadata = {
 	},
 	twitter: {
 		...METADATA.twitter,
-		title: `${INSTITUTE_NAME} | ${TRUST_NAME}`,
+		title: INSTITUTE_NAME,
 		description: METADATA.defaultDescription,
 		images: [IMAGES.ogImage],
 	},
