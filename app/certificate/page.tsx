@@ -190,60 +190,63 @@ export default function CertificatePage() {
 
 							{/* Result Display */}
 							{status === "verified" && studentData && (
-								<div className="mt-8 p-6 bg-gradient-to-br from-primary/20 via-primary/15 to-primary/10 border-2 border-primary rounded-lg shadow-lg animate-fade-in">
-									<div className="flex items-start gap-4">
-										<div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center shrink-0 shadow-md">
-											<CheckCircle className="w-6 h-6 text-primary-foreground" />
+								<div className="mt-8 bg-white rounded-2xl border border-gray-200 p-8">
+									<div className="flex items-start gap-4 mb-8">
+										<div className="w-12 h-12 rounded-xl bg-primary flex items-center justify-center flex-shrink-0">
+											<CheckCircle className="w-6 h-6 text-white" />
 										</div>
 										<div className="flex-1">
-											<h3 className="font-semibold text-primary text-xl mb-1">
+											<h3 className="text-2xl font-bold text-gray-900 mb-2">
 												Certificate Verified
 											</h3>
-											<p className="text-foreground/90 mt-1 font-medium">
+											<p className="text-gray-600">
 												This certificate is authentic and was issued by the Fire
 												& Safety Institute.
 											</p>
-											<div className="mt-5 space-y-3 text-sm bg-white/50 rounded-lg p-4 border border-primary/20">
-												<p className="flex items-baseline gap-2">
-													<span className="font-semibold text-primary min-w-[120px]">
-														Name:
-													</span>
-													<span className="text-foreground font-medium">
-														{studentData.name}
-													</span>
-												</p>
-												<p className="flex items-baseline gap-2">
-													<span className="font-semibold text-primary min-w-[120px]">
-														Serial No:
-													</span>
-													<span className="text-foreground font-medium">
-														{studentData.serial_number}
-													</span>
-												</p>
-												<p className="flex items-baseline gap-2">
-													<span className="font-semibold text-primary min-w-[120px]">
-														REGISTER NUMBER:
-													</span>
-													<span className="text-foreground font-medium">
-														{studentData.register_no}
-													</span>
-												</p>
-												<p className="flex items-baseline gap-2">
-													<span className="font-semibold text-primary min-w-[120px]">
-														Year:
-													</span>
-													<span className="text-foreground font-medium">
-														{studentData.year}
-													</span>
-												</p>
-												<p className="flex items-baseline gap-2">
-													<span className="font-semibold text-primary min-w-[120px]">
-														Status:
-													</span>
-													<span className="text-foreground font-medium">
-														Valid
-													</span>
-												</p>
+										</div>
+									</div>
+									<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+										<div className="space-y-1">
+											<div className="text-xs font-medium text-gray-500 uppercase tracking-wider">
+												Name
+											</div>
+											<div className="text-lg font-semibold text-gray-900">
+												{studentData.name}
+											</div>
+										</div>
+										<div className="space-y-1">
+											<div className="text-xs font-medium text-gray-500 uppercase tracking-wider">
+												Serial No
+											</div>
+											<div className="text-lg font-semibold text-gray-900">
+												{studentData.serial_number}
+											</div>
+										</div>
+										<div className="space-y-1">
+											<div className="text-xs font-medium text-gray-500 uppercase tracking-wider">
+												Register Number
+											</div>
+											<div className="text-lg font-semibold text-gray-900">
+												{studentData.register_no}
+											</div>
+										</div>
+										<div className="space-y-1">
+											<div className="text-xs font-medium text-gray-500 uppercase tracking-wider">
+												Year
+											</div>
+											<div className="text-lg font-semibold text-gray-900">
+												{studentData.year}
+											</div>
+										</div>
+									</div>
+									<div className="mt-8 pt-6 border-t border-gray-100">
+										<div className="flex items-center justify-between">
+											<div className="text-xs font-medium text-gray-500 uppercase tracking-wider">
+												Status
+											</div>
+											<div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-green-50 text-green-700 font-semibold">
+												<CheckCircle className="w-4 h-4" />
+												Valid
 											</div>
 										</div>
 									</div>
