@@ -190,57 +190,59 @@ export default function CertificatePage() {
 
 							{/* Result Display */}
 							{status === "verified" && studentData && (
-								<div className="mt-8 p-6 bg-primary/10 border border-primary/30 rounded-lg animate-fade-in">
+								<div className="mt-8 p-6 bg-gradient-to-br from-primary/20 via-primary/15 to-primary/10 border-2 border-primary rounded-lg shadow-lg animate-fade-in">
 									<div className="flex items-start gap-4">
-										<div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center shrink-0">
-											<CheckCircle className="w-6 h-6 text-primary" />
+										<div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center shrink-0 shadow-md">
+											<CheckCircle className="w-6 h-6 text-primary-foreground" />
 										</div>
-										<div>
-											<h3 className="font-semibold text-primary text-lg">
+										<div className="flex-1">
+											<h3 className="font-semibold text-primary text-xl mb-1">
 												Certificate Verified
 											</h3>
-											<p className="text-primary/80 mt-1">
+											<p className="text-foreground/90 mt-1 font-medium">
 												This certificate is authentic and was issued by the Fire
 												& Safety Institute.
 											</p>
-											<div className="mt-4 space-y-2 text-sm">
-												<p>
-													<span className="font-medium text-primary">
+											<div className="mt-5 space-y-3 text-sm bg-white/50 rounded-lg p-4 border border-primary/20">
+												<p className="flex items-baseline gap-2">
+													<span className="font-semibold text-primary min-w-[120px]">
 														Name:
-													</span>{" "}
-													<span className="text-primary/80">
+													</span>
+													<span className="text-foreground font-medium">
 														{studentData.name}
 													</span>
 												</p>
-												<p>
-													<span className="font-medium text-primary">
+												<p className="flex items-baseline gap-2">
+													<span className="font-semibold text-primary min-w-[120px]">
 														Serial No:
-													</span>{" "}
-													<span className="text-primary/80">
+													</span>
+													<span className="text-foreground font-medium">
 														{studentData.serial_number}
 													</span>
 												</p>
-												<p>
-													<span className="font-medium text-primary">
+												<p className="flex items-baseline gap-2">
+													<span className="font-semibold text-primary min-w-[120px]">
 														REGISTER NUMBER:
-													</span>{" "}
-													<span className="text-primary/80">
+													</span>
+													<span className="text-foreground font-medium">
 														{studentData.register_no}
 													</span>
 												</p>
-												<p>
-													<span className="font-medium text-primary">
+												<p className="flex items-baseline gap-2">
+													<span className="font-semibold text-primary min-w-[120px]">
 														Year:
-													</span>{" "}
-													<span className="text-primary/80">
+													</span>
+													<span className="text-foreground font-medium">
 														{studentData.year}
 													</span>
 												</p>
-												<p>
-													<span className="font-medium text-primary">
+												<p className="flex items-baseline gap-2">
+													<span className="font-semibold text-primary min-w-[120px]">
 														Status:
-													</span>{" "}
-													<span className="text-primary/80">Valid</span>
+													</span>
+													<span className="text-foreground font-medium">
+														Valid
+													</span>
 												</p>
 											</div>
 										</div>
