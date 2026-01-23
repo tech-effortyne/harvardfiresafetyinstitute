@@ -4,6 +4,7 @@ import "./globals.css";
 import Layout from "@/components/layout/Layout";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ReactQueryProvider } from "./providers";
+import { ClarityProvider } from "@/components/analytics/ClarityProvider";
 import { BASE_URL, INSTITUTE_NAME, METADATA, IMAGES, URLS } from "@/lib/config";
 
 const dmSans = DM_Sans({
@@ -71,6 +72,7 @@ export default function RootLayout({
 				></script>
 			</head>
 			<body className={`${dmSans.variable} font-body antialiased`}>
+				<ClarityProvider />
 				<ReactQueryProvider>
 					<TooltipProvider>
 						<Layout>{children}</Layout>
