@@ -64,6 +64,11 @@ export default function RootLayout({
 					crossOrigin="anonymous"
 				/>
 				<link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+				<script
+					src="https://app.rybbit.io/api/script.js"
+					data-site-id="bea65dbaac03"
+					defer
+				></script>
 			</head>
 			<body className={`${dmSans.variable} font-body antialiased`}>
 				<ReactQueryProvider>

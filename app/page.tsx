@@ -270,8 +270,8 @@ export default function HomePage() {
 					{/* Description */}
 					<p className="text-base md:text-lg text-muted-foreground leading-relaxed">
 						Harvard Institute of Fire and Safety Engineering (HIFSE),
-						headquartered in Mangalore—an internationally recognized center for
-						educational excellence—is committed to delivering industry-relevant
+						headquartered in Mangalore, an internationally recognized center for
+						educational excellence, is committed to delivering industry-relevant
 						education in fire and industrial safety. Backed by experienced
 						faculty and state-of-the-art infrastructure, the institute focuses
 						on imparting modern technical knowledge and practical skills through
