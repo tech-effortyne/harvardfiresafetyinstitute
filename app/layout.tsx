@@ -66,8 +66,8 @@ export default function RootLayout({
 				/>
 				<link rel="sitemap" type="application/xml" href="/sitemap.xml" />
 				<script
-					src="https://app.rybbit.io/api/script.js"
-					data-site-id="bea65dbaac03"
+					src="https://lissette-vigorous-fosteringly.ngrok-free.dev/api/script.js"
+					data-site-id="9dbf294d362c"
 					defer
 				></script>
 			</head>
