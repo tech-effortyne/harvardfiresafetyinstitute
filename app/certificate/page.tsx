@@ -35,12 +35,35 @@ export default function CertificatePage() {
 	const [studentData, setStudentData] = useState<StudentData | null>(null);
 	const [rateLimitMessage, setRateLimitMessage] = useState<string>("");
 
+	// Helper function to safely track events with Rybbit
+	const trackEvent = (
+		eventName: string,
+		properties?: Record<string, string | number>,
+	) => {
+		if (typeof window !== "undefined" && window.rybbit) {
+			try {
+				window.rybbit.event(eventName, properties);
+			} catch (error) {
+				console.error("Rybbit tracking error:", error);
+			}
+		}
+	};
+
 	const handleVerify = async (e: React.FormEvent) => {
 		e.preventDefault();
 
 		if (!serialNumber.trim() || !fsNumber.trim()) {
 			return;
 		}
+
+		const trimmedSerialNumber = serialNumber.trim();
+		const trimmedFsNumber = fsNumber.trim();
+
+		// Track form submission
+		trackEvent("certificate_verification_submitted", {
+			serial_number: trimmedSerialNumber,
+			register_no: trimmedFsNumber,
+		});
 
 		setStatus("loading");
 		setStudentData(null);
@@ -53,8 +76,8 @@ export default function CertificatePage() {
 					"Content-Type": "application/json",
 				},
 				body: JSON.stringify({
-					serial_number: serialNumber.trim(),
-					register_no: fsNumber.trim(),
+					serial_number: trimmedSerialNumber,
+					register_no: trimmedFsNumber,
 				}),
 			});
 
@@ -63,19 +86,47 @@ export default function CertificatePage() {
 			if (response.ok && data.name) {
 				setStudentData(data);
 				setStatus("verified");
+				// Track successful verification
+				trackEvent("certificate_verification_success", {
+					serial_number: data.serial_number,
+					register_no: data.register_no,
+					year: data.year,
+				});
 			} else if (response.status === 404) {
 				setStatus("not_found");
+				// Track not found
+				trackEvent("certificate_verification_not_found", {
+					serial_number: trimmedSerialNumber,
+					register_no: trimmedFsNumber,
+				});
 			} else if (response.status === 429) {
 				setRateLimitMessage(
 					data.error || "Too many requests. Please try again later.",
 				);
 				setStatus("rate_limited");
+				// Track rate limit
+				trackEvent("certificate_verification_rate_limited", {
+					serial_number: trimmedSerialNumber,
+					register_no: trimmedFsNumber,
+				});
 			} else {
 				setStatus("error");
+				// Track error
+				trackEvent("certificate_verification_error", {
+					serial_number: trimmedSerialNumber,
+					register_no: trimmedFsNumber,
+					status_code: response.status,
+				});
 			}
 		} catch (error) {
 			console.error("Verification error:", error);
 			setStatus("error");
+			// Track error
+			trackEvent("certificate_verification_error", {
+				serial_number: trimmedSerialNumber,
+				register_no: trimmedFsNumber,
+				error_type: "network_error",
+			});
 		}
 	};
 

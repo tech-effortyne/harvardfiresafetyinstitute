@@ -8,77 +8,78 @@ import { ClarityProvider } from "@/components/analytics/ClarityProvider";
 import { BASE_URL, INSTITUTE_NAME, METADATA, IMAGES, URLS } from "@/lib/config";
 
 const dmSans = DM_Sans({
-	subsets: ["latin"],
-	variable: "--font-dm-sans",
-	display: "swap",
+  subsets: ["latin"],
+  variable: "--font-dm-sans",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-	title: METADATA.defaultTitle,
-	description: METADATA.defaultDescription,
-	keywords: METADATA.defaultKeywords,
-	authors: [{ name: INSTITUTE_NAME }],
-	robots: METADATA.robots,
-	icons: {
-		icon: IMAGES.logo,
-		shortcut: IMAGES.logo,
-		apple: IMAGES.logo,
-	},
-	openGraph: {
-		...METADATA.openGraph,
-		url: URLS.home,
-		title: INSTITUTE_NAME,
-		description: METADATA.defaultDescription,
-		images: [
-			{
-				url: IMAGES.ogImage,
-				width: 1200,
-				height: 630,
-				alt: `${INSTITUTE_NAME} Campus`,
-			},
-		],
-	},
-	twitter: {
-		...METADATA.twitter,
-		title: INSTITUTE_NAME,
-		description: METADATA.defaultDescription,
-		images: [IMAGES.ogImage],
-	},
-	metadataBase: new URL(BASE_URL),
-	alternates: {
-		canonical: "/",
-	},
+  title: METADATA.defaultTitle,
+  description: METADATA.defaultDescription,
+  keywords: METADATA.defaultKeywords,
+  authors: [{ name: INSTITUTE_NAME }],
+  robots: METADATA.robots,
+  icons: {
+    icon: IMAGES.logo,
+    shortcut: IMAGES.logo,
+    apple: IMAGES.logo,
+  },
+  openGraph: {
+    ...METADATA.openGraph,
+    url: URLS.home,
+    title: INSTITUTE_NAME,
+    description: METADATA.defaultDescription,
+    images: [
+      {
+        url: IMAGES.ogImage,
+        width: 1200,
+        height: 630,
+        alt: `${INSTITUTE_NAME} Campus`,
+      },
+    ],
+  },
+  twitter: {
+    ...METADATA.twitter,
+    title: INSTITUTE_NAME,
+    description: METADATA.defaultDescription,
+    images: [IMAGES.ogImage],
+  },
+  metadataBase: new URL(BASE_URL),
+  alternates: {
+    canonical: "/",
+  },
 };
 
 export default function RootLayout({
-	children,
+  children,
 }: Readonly<{
-	children: React.ReactNode;
+  children: React.ReactNode;
 }>) {
-	return (
-		<html lang="en" suppressHydrationWarning>
-			<head>
-				<link rel="preconnect" href="https://fonts.googleapis.com" />
-				<link
-					rel="preconnect"
-					href="https://fonts.gstatic.com"
-					crossOrigin="anonymous"
-				/>
-				<link rel="sitemap" type="application/xml" href="/sitemap.xml" />
-				<script
-					src="https://lissette-vigorous-fosteringly.ngrok-free.dev/api/script.js"
-					data-site-id="9dbf294d362c"
-					defer
-				></script>
-			</head>
-			<body className={`${dmSans.variable} font-body antialiased`}>
-				<ClarityProvider />
-				<ReactQueryProvider>
-					<TooltipProvider>
-						<Layout>{children}</Layout>
-					</TooltipProvider>
-				</ReactQueryProvider>
-			</body>
-		</html>
-	);
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+        <script
+          src="http://localhost/api/script.js"
+          data-site-id="ab06a356ebb1"
+          data-replay="true"
+          defer
+        ></script>
+      </head>
+      <body className={`${dmSans.variable} font-body antialiased`}>
+        <ClarityProvider />
+        <ReactQueryProvider>
+          <TooltipProvider>
+            <Layout>{children}</Layout>
+          </TooltipProvider>
+        </ReactQueryProvider>
+      </body>
+    </html>
+  );
 }
