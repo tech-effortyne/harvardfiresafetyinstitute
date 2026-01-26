@@ -65,11 +65,6 @@ export default function RootLayout({
 					crossOrigin="anonymous"
 				/>
 				<link rel="sitemap" type="application/xml" href="/sitemap.xml" />
-				<script
-					src="https://lissette-vigorous-fosteringly.ngrok-free.dev/api/script.js"
-					data-site-id="9dbf294d362c"
-					defer
-				></script>
 			</head>
 			<body className={`${dmSans.variable} font-body antialiased`}>
 				<ClarityProvider />

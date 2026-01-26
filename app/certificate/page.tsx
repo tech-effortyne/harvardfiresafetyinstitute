@@ -90,16 +90,16 @@ export default function CertificatePage() {
 	return (
 		<>
 			{/* Hero Section */}
-			<section className="bg-primary py-20">
+			<section className="bg-gradient-to-r from-[#7A1E2B] to-[#5a1620] py-20">
 				<div className="container-custom">
 					<div className="max-w-3xl">
-						<span className="text-gold font-medium text-sm uppercase tracking-wider">
+						<span className="text-white font-medium text-sm uppercase tracking-wider">
 							Verification Portal
 						</span>
-						<h1 className="font-heading text-4xl md:text-5xl font-bold text-primary-foreground mt-2 mb-6">
+						<h1 className="text-4xl md:text-5xl font-bold text-white mt-2 mb-6">
 							Certificate Verification
 						</h1>
-						<p className="text-primary-foreground/90 text-lg leading-relaxed">
+						<p className="text-white/90 text-lg leading-relaxed">
 							Verify the authenticity of certificates issued by our institution.
 							Employers and institutions can confirm the validity of our
 							graduates' credentials.
@@ -111,15 +111,15 @@ export default function CertificatePage() {
 			{/* Verification Form */}
 			<section className="section-padding">
 				<div className="container-custom max-w-2xl">
-					<Card className="border-border">
+					<Card className="border-gray-200">
 						<CardHeader className="text-center pb-2">
-							<div className="w-16 h-16 rounded-full bg-gold/10 flex items-center justify-center mx-auto mb-4">
-								<Award className="w-8 h-8 text-gold" />
+							<div className="w-16 h-16 rounded-full bg-[#F57C00]/10 flex items-center justify-center mx-auto mb-4">
+								<Award className="w-8 h-8 text-[#F57C00]" />
 							</div>
-							<CardTitle className="font-heading text-2xl text-foreground">
+							<CardTitle className="text-2xl text-[#7A1E2B] font-bold">
 								Verify Certificate
 							</CardTitle>
-							<p className="text-muted-foreground mt-2">
+							<p className="text-[#2B2B2B]/70 mt-2">
 								Enter the certificate details to verify its authenticity
 							</p>
 						</CardHeader>
@@ -154,7 +154,7 @@ export default function CertificatePage() {
 								<div className="flex gap-4">
 									<Button
 										type="submit"
-										className="flex-1 bg-primary text-primary-foreground hover:bg-navy-light"
+										className="flex-1 bg-[#F57C00] text-white hover:bg-[#F57C00]/90 rounded-lg"
 										disabled={
 											status === "loading" ||
 											!serialNumber.trim() ||
@@ -163,7 +163,7 @@ export default function CertificatePage() {
 									>
 										{status === "loading" ? (
 											<>
-												<div className="w-4 h-4 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin mr-2" />
+												<div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin mr-2" />
 												Verifying...
 											</>
 										) : (
