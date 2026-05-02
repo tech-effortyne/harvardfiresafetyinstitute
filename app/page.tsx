@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { Award, CheckCircle } from "lucide-react";
+import { Award, CheckCircle, Building2, GraduationCap, IndianRupee, Users, ShieldCheck, Briefcase, Construction, Factory, TrendingUp, MapPin } from "lucide-react";
 import { PAGE_METADATA, URLS, IMAGES, INSTITUTE_NAME } from "@/lib/config";
 
 const courses = [
@@ -47,33 +47,48 @@ const features = [
 	{
 		title: "Affiliated to Mangalore University",
 		description:
-			"Our programs are officially recognized and affiliated with Mangalore University, ensuring your diploma holds academic credibility and industry value.",
+			"Our programs are officially recognized and affiliated with Mangalore University, ensuring your diploma holds academic credibility.",
+		icon: GraduationCap,
 	},
 	{
 		title: "Approved by Government of Karnataka",
 		description:
-			"We operate with full government approval, meeting all regulatory standards and ensuring your education meets official safety training requirements.",
+			"We operate with full government approval, meeting all regulatory standards and ensuring your education meets official requirements.",
+		icon: ShieldCheck,
 	},
 	{
-		title: "Practical Training Under Diploma Package",
+		title: "Practical Training Package",
 		description:
 			"Comprehensive hands-on training integrated into every diploma program, giving you real-world skills alongside theoretical knowledge.",
+		icon: Briefcase,
 	},
 	{
 		title: "Construction Site Visits",
 		description:
-			"Regular visits to active construction sites provide firsthand exposure to safety protocols, risk management, and on-site safety practices.",
+			"Regular visits to active construction sites provide firsthand exposure to safety protocols and on-site safety practices.",
+		icon: Construction,
 	},
 	{
 		title: "Industrial Visits & Workshops",
 		description:
-			"Interactive workshops and industrial facility tours connect you with industry professionals and expose you to diverse safety management systems.",
+			"Interactive workshops and industrial tours connect you with professionals and expose you to diverse safety management systems.",
+		icon: Factory,
 	},
 	{
-		title: "98% Students Successfully Placed",
+		title: "98% Placement Success",
 		description:
-			"Our strong industry connections and comprehensive career support help nearly all graduates secure rewarding positions in fire and safety management.",
+			"Our strong industry connections and career support help nearly all graduates secure rewarding positions in safety management.",
+		icon: TrendingUp,
 	},
+];
+
+import { PLACEMENTS } from "@/lib/data";
+
+
+const placementStats = [
+	{ label: "Students Placed", value: "200+", icon: Users },
+	{ label: "Partner Companies", value: "50+", icon: Building2 },
+	{ label: "Avg. Package", value: "₹4.5L", icon: IndianRupee },
 ];
 
 export const metadata: Metadata = {
@@ -107,7 +122,7 @@ export default function HomePage() {
 					{/* Main Heading */}
 					<h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#2B2B2B] leading-tight mb-6">
 						At the end of the day, our goals are simple:{" "}
-						<span className="text-[#7A1E2B]">Quality Safety Training</span>
+						<span className="text-[#7A1E2B] drop-shadow-sm">Quality Safety Training</span>
 					</h1>
 
 					{/* Description */}
@@ -154,7 +169,7 @@ export default function HomePage() {
 								fill
 								className="object-cover group-hover:scale-105 transition-transform duration-500"
 							/>
-							<div className="absolute inset-0 bg-gradient-to-t from-[#7A1E2B]/80 via-[#7A1E2B]/30 to-transparent" />
+							<div className="absolute inset-0 bg-gradient-to-t from-[#7A1E2B]/95 via-[#7A1E2B]/50 to-transparent" />
 							<div className="absolute bottom-6 left-6 text-white">
 								<h3 className="text-xl md:text-2xl font-bold leading-tight">
 									Be the
@@ -200,7 +215,7 @@ export default function HomePage() {
 								fill
 								className="object-cover group-hover:scale-105 transition-transform duration-500"
 							/>
-							<div className="absolute inset-0 bg-gradient-to-t from-[#7A1E2B]/90 via-[#7A1E2B]/50 to-transparent" />
+							<div className="absolute inset-0 bg-gradient-to-t from-[#7A1E2B] via-[#7A1E2B]/60 to-transparent" />
 							<div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-center text-white">
 								<h3 className="text-lg md:text-xl font-bold leading-tight">
 									Join 1000
@@ -462,23 +477,115 @@ export default function HomePage() {
 						</h2>
 					</div>
 
-					<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+					<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 						{features.map((feature) => (
 							<div
 								key={feature.title}
-								className="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm hover:shadow-lg transition-shadow"
+								className="group relative bg-white rounded-3xl p-8 border border-gray-100 shadow-sm hover:shadow-xl hover:border-[#7A1E2B]/10 transition-all duration-300 overflow-hidden"
 							>
-								<div className="w-10 h-10 rounded-xl bg-[#7A1E2B]/10 flex items-center justify-center mb-4">
-									<CheckCircle className="w-5 h-5 text-[#7A1E2B]" />
+								{/* Premium Icon container */}
+								<div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#7A1E2B]/10 to-white border border-[#7A1E2B]/5 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500">
+									<feature.icon className="w-8 h-8 text-[#7A1E2B]" />
 								</div>
-								<h3 className="font-semibold text-[#2B2B2B] mb-2">
-									{feature.title}
-								</h3>
-								<p className="text-[#2B2B2B]/70 text-sm">
-									{feature.description}
-								</p>
+								
+								{/* Content */}
+								<div className="space-y-4">
+									<h3 className="text-xl font-bold text-[#2B2B2B] tracking-tight group-hover:text-[#7A1E2B] transition-colors duration-300">
+										{feature.title}
+									</h3>
+									
+									<div className="w-12 h-1 bg-[#7A1E2B]/20 rounded-full group-hover:w-20 group-hover:bg-[#7A1E2B] transition-all duration-500" />
+									
+									<p className="text-[#2B2B2B]/70 text-sm leading-relaxed">
+										{feature.description}
+									</p>
+								</div>
+
+								{/* Subtle Corner Decoration */}
+								<div className="absolute -right-4 -bottom-4 w-24 h-24 bg-gray-50 rounded-full -z-10 group-hover:bg-[#7A1E2B]/5 transition-colors duration-500" />
 							</div>
 						))}
+					</div>
+				</div>
+			</section>
+
+			{/* Student Placements */}
+			<section id="placements" className="py-20 md:py-28 bg-gray-50">
+				<div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+					{/* Section Header */}
+					<div className="text-center mb-14">
+						<span className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold bg-[#7A1E2B]/10 text-[#7A1E2B] mb-4">
+							PLACEMENTS
+						</span>
+						<h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#7A1E2B] mb-4">
+							Our Placed Students
+						</h2>
+						<p className="text-base md:text-lg text-[#2B2B2B]/70 max-w-2xl mx-auto">
+							Our graduates are proudly working at top companies across India
+						</p>
+					</div>
+
+					{/* Placement Cards Grid */}
+					<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-5 mb-12">
+						{PLACEMENTS.slice(0, 6).map((student) => (
+							<div
+								key={student.name}
+								className="bg-white rounded-2xl border border-gray-100 p-3 text-center shadow-sm"
+							>
+								{/* Photo Section */}
+								<div className="relative aspect-square rounded-xl overflow-hidden mb-3 bg-gray-50">
+									{student.image ? (
+										<Image
+											src={student.image}
+											alt={student.name}
+											fill
+											className="object-cover"
+										/>
+									) : (
+										<div className="absolute inset-0 flex items-center justify-center text-gray-200">
+											<Users className="w-8 h-8" />
+										</div>
+									)}
+								</div>
+
+								{/* Info Section */}
+								<div className="space-y-1 px-0.5">
+									<h3 className="font-bold text-[#2B2B2B] text-xs truncate">
+										{student.name}
+									</h3>
+									
+									<p className="text-[10px] font-medium text-[#7A1E2B] truncate uppercase tracking-tight">
+										{student.role || "Graduate"}
+									</p>
+
+									<div className="pt-1 flex flex-col gap-0.5">
+										{student.company && (
+											<p className="text-[10px] text-gray-600 truncate">{student.company}</p>
+										)}
+										{student.location && (
+											<p className="text-[10px] text-gray-500 truncate italic">{student.location}</p>
+										)}
+										{student.salary && (
+											<p className="text-[10px] font-bold text-emerald-600">{student.salary}</p>
+										)}
+										{student.rank && (
+											<p className="text-[10px] font-bold text-[#7A1E2B]">{student.rank}</p>
+										)}
+									</div>
+								</div>
+							</div>
+						))}
+					</div>
+
+					{/* View More Button */}
+					<div className="text-center">
+						<Button
+							asChild
+							variant="outline"
+							className="rounded-xl border-[#7A1E2B] text-[#7A1E2B] hover:bg-[#7A1E2B] hover:text-white transition-all px-8 py-6 font-semibold"
+						>
+							<Link href="/placements">View All Placed Students</Link>
+						</Button>
 					</div>
 				</div>
 			</section>
